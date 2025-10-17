@@ -40,7 +40,11 @@ export default function PieChart({
         const ctx = canvas.getContext("2d");
 
         if (ctx) {
-          (window as any).myLine = new Chart(ctx, config as any);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          if ((window as any).myPie) {
+            (window as any).myPie.destroy();
+          }
+          (window as any).myPie = new Chart(ctx, config as any);
         }
       }
     }

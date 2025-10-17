@@ -89,12 +89,14 @@ export default function Home() {
           <Button disabled={isDisabledSubmit} handleClick={getPopulation} label="Submit" />
           {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         </div>
-        <div className="my-3 w-full">
-          <p className="text-center">Line Chart</p>
-          <LineChart data={data} labels={labels} previousData={previousData} />
-          <p className="text-center">Pie Chart</p>
-          <PieChart data={data} labels={labels} previousData={previousData} />
-        </div>
+        {!isLoading && (
+          <div className="my-3 w-full">
+            <p className="text-center">Line Chart</p>
+            <LineChart data={data} labels={labels} previousData={previousData} />
+            <p className="text-center">Pie Chart</p>
+            <PieChart data={data} labels={labels} previousData={previousData} />
+          </div>
+        )}
       </main>
     </>
   );

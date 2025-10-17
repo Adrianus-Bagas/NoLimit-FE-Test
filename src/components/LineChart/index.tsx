@@ -105,6 +105,10 @@ export default function LineChart({
         const ctx = canvas.getContext("2d");
 
         if (ctx) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          if ((window as any).myLine) {
+            (window as any).myLine.destroy();
+          }
           (window as any).myLine = new Chart(ctx, config as any);
         }
       }
